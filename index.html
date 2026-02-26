@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parquímetro Simulado</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-label="Simulador de parquímetro">
+        <header class="card__header">
+          <h1 class="card__title">Parquímetro</h1>
+          <p class="card__subtitle">Informe um valor e veja o tempo + troco.</p>
+        </header>
+
+        <div class="field">
+          <label class="field__label" for="amount">Valor (R$)</label>
+          <input
+            class="field__input"
+            type="text"
+            id="amount"
+            inputmode="decimal"
+            placeholder="Ex: 2,50 ou 2.50"
+            autocomplete="off"
+          />
+          <small class="field__hint"
+            >Mínimo: R$ 1,00 | Máximo: 120 min com R$ 3,00</small
+          >
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--primary" id="calculate" disabled>
+            Calcular
+          </button>
+          <button class="btn btn--ghost" id="clear" type="button">
+            Limpar
+          </button>
+        </div>
+
+        <div id="result" class="result" role="status" aria-live="polite"></div>
+
+        <footer class="rules">
+          <p class="rules__title">Regras</p>
+          <ul class="rules__list">
+            <li><strong>R$ 1,00</strong> → 30 min</li>
+            <li><strong>R$ 1,75</strong> → 60 min</li>
+            <li><strong>R$ 3,00</strong> → 120 min (máximo)</li>
+          </ul>
+        </footer>
+      </section>
+    </main>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
