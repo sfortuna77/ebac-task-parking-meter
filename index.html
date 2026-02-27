@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -6,6 +6,7 @@
     <title>Parquímetro Simulado</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <main class="page">
       <section class="card" aria-label="Simulador de parquímetro">
@@ -50,6 +51,93 @@
         </footer>
       </section>
     </main>
+
+    <!-- Ticket Modal -->
+    <div class="modal" id="ticketModal" aria-hidden="true">
+      <div class="modal__backdrop" data-close="true"></div>
+
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ticketTitle"
+      >
+        <button class="modal__close" id="ticketClose" aria-label="Fechar">
+          ×
+        </button>
+
+        <div class="ticket" id="ticketToPrint">
+          <div class="ticket__top">
+            <div class="ticket__brand" id="ticketTitle">
+              Parquímetro Digital
+            </div>
+
+            <div class="ticket__meta">
+              <div id="ticketIssuedAt">—</div>
+              <div class="ticket__id">Ticket: <span id="ticketId">—</span></div>
+            </div>
+          </div>
+
+          <div class="ticket__divider"></div>
+
+          <div class="ticket__row">
+            <span>Tarifa aplicada</span>
+            <strong id="ticketTariff">—</strong>
+          </div>
+
+          <div class="ticket__row">
+            <span>Tempo comprado</span>
+            <strong id="ticketDuration">—</strong>
+          </div>
+
+          <div class="ticket__row">
+            <span>Válido até</span>
+            <strong id="ticketValidUntil">—</strong>
+          </div>
+
+          <div class="ticket__divider"></div>
+
+          <div class="ticket__row">
+            <span>Valor pago</span>
+            <strong id="ticketPaid">—</strong>
+          </div>
+
+          <div class="ticket__row">
+            <span>Troco emitido</span>
+            <strong id="ticketChange">—</strong>
+          </div>
+
+          <div class="ticket__divider"></div>
+
+          <div class="ticket__qr">
+            <div class="ticket__qrBox" aria-hidden="true">
+              <span class="qr__corner qr__corner--tl"></span>
+              <span class="qr__corner qr__corner--tr"></span>
+              <span class="qr__corner qr__corner--bl"></span>
+              <span class="qr__corner qr__corner--br"></span>
+              <div class="qr__grid"></div>
+            </div>
+
+            <div class="ticket__qrText">
+              <div class="ticket__qrLabel">QR (simulado)</div>
+              <div class="ticket__qrValue" id="ticketQrPayload">—</div>
+            </div>
+          </div>
+
+          <div class="ticket__divider"></div>
+
+          <p class="ticket__note">
+            Guarde este ticket. Sujeito à fiscalização.
+          </p>
+
+          <div class="ticket__actions">
+            <button class="btn btn--primary ticket__print" id="ticketPrint">
+              Imprimir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="scripts.js"></script>
   </body>
